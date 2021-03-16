@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head"/>
+
+
+<body>
+<header th:replace="fragments :: html_navbar"/>
+<div>
+
+    <div class="container admin">
+        <div class="row">
+            <h1><strong>Liste des Voitures </strong>
+                <hr>
+                <a href="" th:href="@{'/item/add'}" class=" btn btn-outline-success btn-lg"> Ajouter</a></h1>
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Prix</th>
+                    <th>Catégorie</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="i: ${item}">
+                    <td th:text="${i.name}"></td>
+                    <td th:text="${i.description}"></td>
+                    <td th:text="${i.price}"></td>
+                    <td th:text="${i.categories.name}"></td>
+                    <td width=300>
+                        <a class="btn btn-warning" href=""> Voir</a>
+                        <a class="btn btn-primary" href=""> Modifier</a>
+                        <a class="btn btn-danger" href=""> Supprimer</a>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head"/>
+
+
+<body>
+<header th:replace="fragments :: html_navbar"/>
+<br>
+<br>
+<div class="container admin">
+    <div class="row">
+        <div class="col-sm-6 border bg-light border-dark">
+            <h1><strong>Ajouter une annonce</strong></h1>
+            <br>
+            <form class="form" action="#"  role="form" method="post" enctype="multipart/form-data" th:action="@{/item}"
+                  th:object="${items}">
+                <div class="form-group">
+                    <label for="name">Nom:</label>
+                    <input type="text" th:field="*{nomVoiture}" class="form-control" id="name" name="name" placeholder="Nom" value="">
+                    <span class="help-inline"></span>
+                </div>
+                <div class="form-group">
+                    <label for="description">Description:</label>
+                    <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" value="" cols="80" rows="10" th:field="*{descriptionVoiture}"></textarea>
+
+                    <span class="help-inline"></span>
+                </div>
+                <div class="form-group">
+                    <label for="price">Prix: (en €)</label>
+                    <input type="number"  th:field="*{prix}" step="100" class="form-control" id="price" name="price" placeholder="Prix" value="">
+                    <span class="help-inline"></span>
+                </div>
+                <div class="form-group">
+                    <label for="categories_id">Catégorie:</label>
+                    <!-- //TODO-->
+                    <select class="form-control" th:each="i: ${items.categoriesId}"  id="categories_id" name="categories_id">
+                        <option th:text=""></option>
+                    </select>
+                    <span class="help-inline"></span>
+                </div>
+                <div class="form-group">
+                    <label for="image">Sélectionner une image:</label>
+                    <input type="file" id="image" name="image">
+                    <span class="help-inline"></span>
+                </div>
+                <br>
+                <div class="form-actions">
+                    <button type="submit" value="Valider" class="btn btn-success" >Ajouter</button>
+                    <a class="btn btn-primary" href=""> Retour</a>
+                    <br><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
