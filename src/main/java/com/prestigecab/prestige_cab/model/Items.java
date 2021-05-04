@@ -1,8 +1,13 @@
 package com.prestigecab.prestige_cab.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Objects;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "ITEMS")
 public class Items {
@@ -20,63 +25,12 @@ public class Items {
     @Column(name = "PRICE", nullable = false)
     private int price;
     @Basic
-    @Column(name = "IMAGE", nullable = false, length = 250)
+    //TODO changer nullable
+    @Column(name = "IMAGE", nullable = true, length = 250)
     private String image;
     @ManyToOne
     @JoinColumn(name = "CATEGORIES_ID")
     private Categories categories;
-
-    public int getPrice() {
-        return price;
-    }
-
-    public Categories getCategories() {
-        return categories;
-    }
-
-    public void setCategories(Categories categories) {
-        this.categories = categories;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getPrice(int prix) {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
 
     @Override
     public boolean equals(Object o) {

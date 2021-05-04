@@ -1,13 +1,20 @@
 package com.prestigecab.prestige_cab.controller;
 
+import com.prestigecab.prestige_cab.formdata.CategorieFormDTO;
 import com.prestigecab.prestige_cab.formdata.ItemFormDTO;
+import com.prestigecab.prestige_cab.model.Categories;
 import com.prestigecab.prestige_cab.model.Items;
 import com.prestigecab.prestige_cab.service.PrestigeCabService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class MainController {
@@ -23,9 +30,22 @@ public class MainController {
         return "accueil";
     }
 
+
+    //Item--------------------------------------------------------------------------------------------------------------
     @GetMapping("/item")
-    public String items(Model model) {
-        model.addAttribute("item", prestigeCabService.getItems());
+    public String items(Model model, @Param("keyword") String keyword) {
+
+        List<Items> itemsList = prestigeCabService.itemRequete(keyword);
+//        model.addAttribute("item", prestigeCabService.getItems());
+//        model.addAttribute("item", itemsList);
+//        model.addAttribute("keyword", keyword);
+
+        if (keyword == "" || keyword==null) {
+            model.addAttribute("item", prestigeCabService.getItems());
+        } else {
+            model.addAttribute("item", itemsList);
+        }
+
         return "itemlist";
 
     }
@@ -39,14 +59,72 @@ public class MainController {
         itemFormDTO.setDescriptionVoiture(items.getDescription());
         itemFormDTO.setPrix(items.getPrice());
         itemFormDTO.setCategoriesId(items.getCategories().getId());
+        List<Categories> categories = prestigeCabService.getCategories();
         model.addAttribute("items", itemFormDTO);
+        model.addAttribute("categories", categories);
+
         return "itemform";
     }
 
     @GetMapping("/item/add")
     public String addItems(Model model) {
         model.addAttribute("items", new ItemFormDTO());
+        List<Categories> categories = prestigeCabService.getCategories();
+        model.addAttribute("categories", categories);
         return "itemform";
     }
+
+
+    @GetMapping("/item/delete/{id}")
+    public String deleteItems(@PathVariable(name = "id") Long id) {
+        prestigeCabService.deleteItems(id);
+        return "redirect:/item";
+    }
+
+    @PostMapping("/item")
+    public String postItems(@ModelAttribute(name = "item") ItemFormDTO itemFormDTO) {
+
+        prestigeCabService.saveItems(itemFormDTO);
+        return "redirect:/item";
+    }
+
+    //Categorie---------------------------------------------------------------------------------------------------------
+    @GetMapping("/categorie")
+    public String categorie(Model model) {
+        model.addAttribute("categorie", prestigeCabService.getCategories());
+        return "categlist";
+    }
+
+    @GetMapping("/categorie/{id}")
+    public String categories(Model model, @PathVariable(name = "id") Long id) {
+        Categories categories = prestigeCabService.getCategorie(id);
+        CategorieFormDTO categorieFormDTO = new CategorieFormDTO();
+        categorieFormDTO.setId(categories.getId());
+        categorieFormDTO.setName(categories.getName());
+        model.addAttribute("categories", categories);
+
+        return "categform";
+    }
+
+    @GetMapping("/categorie/add")
+    public String addCategories(Model model) {
+        model.addAttribute("categories", new CategorieFormDTO());
+
+        return "categform";
+    }
+
+    @GetMapping("/categorie/delete/{id}")
+    public String deleteCategories(@PathVariable(name = "id") Long id) {
+        prestigeCabService.deleteCategories(id);
+        return "redirect:/categorie";
+    }
+
+    @PostMapping("/categorie")
+    public String postCategories(@ModelAttribute(name = "categorie") CategorieFormDTO categorieFormDTO) {
+        prestigeCabService.saveCategories(categorieFormDTO);
+        return "redirect:/categorie";
+    }
+
+
 
 }

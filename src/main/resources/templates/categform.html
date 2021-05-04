@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head"/>
+
+
+<body>
+<header th:replace="fragments :: html_navbar"/>
+<br>
+<br>
+<div class="container admin">
+    <div class="row">
+        <div class="col-sm-6 border bg-light border-dark">
+            <h1><strong>Ajouter une categorie</strong></h1>
+            <br>
+            <form class="form" action="#"
+                  role="form" method="post"
+                  enctype="multipart/form-data"
+                  th:action="@{/categorie}"
+                  th:object="${categories}">
+                <input type="hidden" name="id" th:field="*{id}">
+                <div class="form-group">
+                    <label for="nom">Nom:</label>
+                    <input type="text" th:field="*{name}" class="form-control" id="nom" name="nom" placeholder="Nom" value="">
+                    <span class="help-inline"></span>
+                </div>
+
+                <br>
+                <div class="form-actions">
+                    <button type="submit" value="Valider" class="btn btn-success" > <i class="bi bi-check-circle-fill">&nbsp; Ajouter</i></button>
+                    <a class="btn btn-primary" th:href="@{'/categorie/'}"> Retour</a>
+                    <br><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

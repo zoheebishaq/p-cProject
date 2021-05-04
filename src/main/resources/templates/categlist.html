@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: html_head"/>
+
+
+<body>
+<header th:replace="fragments :: html_navbar"/>
+<div>
+
+    <div class="container admin">
+        <div class="row">
+            <h1><strong>Liste des Categories </strong>
+
+                <hr>
+<!--                th:href="@{'/item/add'}"-->
+                <a href=""  th:href="@{'/categorie/add'}" class=" btn btn-outline-success btn-lg"> <i class="bi bi-pen-fill">&nbsp; Ajouter</i></a>
+            </h1>
+            <table class="table table table-hover  table-bordered border border-dark">
+                <thead>
+                <tr >
+                    <th width=250>Nom</th>
+                    <th>Actions</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr th:each="c: ${categorie}">
+                    <td  th:text="${c.name}"></td>
+
+                    <td width=30>
+
+
+<!--                        th:href="@{'/item/'+${i.id}}"-->
+                        <a class="btn btn-primary" th:href="@{'/categorie/'+${c.id}}"href=""><i class="bi bi-nut-fill">&nbsp; Modifier</i> </a>
+<!--                        th:href="@{'/item/delete/'+${i.id}}"-->
+<!--                        <a class="btn btn-danger"  th:href="@{'/categorie/delete/'+${c.id}}" href="" >Supprimer</a>-->
+                        <a data-toggle="modal" class="btn btn-danger" data-target="#modal-warning" th:attr="data-target='#modal-warning'+${c.id }"><i class="bi bi-trash-fill">&nbsp; Supprimer</i></a>
+
+
+                        <div class="modal modal-warning fade in" th:id="modal-warning+${c.id }" >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+
+                                        <h5 class="modal-title">Supprimer une categorie</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        Etes vous sur de vouloir supprimer ?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button"  class="btn btn-secondary" data-dismiss="modal">Retour</button>
+                                        <a type="button" class="btn btn-danger" th:href="@{/categorie/delete/{id}(id=${c.id})}"><i class="bi bi-trash-fill">&nbsp; Supprimer</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+</body>
+</html>

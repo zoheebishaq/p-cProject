@@ -1,9 +1,13 @@
 package com.prestigecab.prestige_cab.model;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Collection;
 import java.util.Objects;
-
+@Getter
+@Setter
 @Entity
 @Table(name = "CATEGORIES")
 public class Categories {
@@ -14,33 +18,8 @@ public class Categories {
     @Basic
     @Column(name = "NAME", length = 1000)
     private String name;
-
-    public Collection<Items> getItems() {
-        return items;
-    }
-
-    public void setItems(Collection<Items> items) {
-        this.items = items;
-    }
-
     @OneToMany(mappedBy = "categories")
     private Collection<Items> items;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public boolean equals(Object o) {
