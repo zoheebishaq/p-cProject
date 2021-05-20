@@ -71,7 +71,14 @@ public class PrestigeCabService {
         return Lists.newArrayList(categorieRepository.findAll());
     }
     public Categories getCategorie(Long id){ return categorieRepository.findById(id).orElse(new Categories()); }
-    public void deleteCategories(Long  id){ categorieRepository.deleteById(id);}
+
+    public void deleteCategories(Long  id){
+        List<Items> items = itemRepository.findItemsByCategories_Id(id);
+        for(Items item:items){
+            deleteItems(item.getId());
+        }
+        categorieRepository.deleteById(id);
+    }
 
     public void saveCategories(CategorieFormDTO categorieFormDTO)
     {

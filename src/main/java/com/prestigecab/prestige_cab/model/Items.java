@@ -25,7 +25,7 @@ public class Items {
     @Column(name = "PRICE", nullable = false)
     private int price;
     @Basic
-    //TODO changer nullable
+    // changer nullable
     @Column(name = "IMAGE", nullable = true, length = 250)
     private String image;
     @ManyToOne

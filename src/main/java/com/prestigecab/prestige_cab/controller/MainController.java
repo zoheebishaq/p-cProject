@@ -20,6 +20,21 @@ import java.util.List;
 public class MainController {
     private PrestigeCabService prestigeCabService;
 
+    @GetMapping("/home")
+    public String home(){
+        return "home";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "login";
+    }
+
+    @GetMapping("/hello")
+    public String hello(){
+        return "hello";
+    }
+
     @Autowired
     public MainController(PrestigeCabService prestigeCabService) {
         this.prestigeCabService = prestigeCabService;
