@@ -60,8 +60,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser(defUser)
                 .password(bCryptPasswordEncoder().encode(defPassword))
-                .roles("ADMIN","ARBITRE")
-                .authorities("ADMIN","ARBITRE");
+                .roles("ADMIN","Zoheeb")
+                .authorities("ADMIN","Zoheeb");
         auth.userDetailsService(jpaUserDetailsService).passwordEncoder(bCryptPasswordEncoder());
     }
 

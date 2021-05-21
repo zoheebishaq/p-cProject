@@ -4,45 +4,29 @@ import com.prestigecab.prestige_cab.formdata.CategorieFormDTO;
 import com.prestigecab.prestige_cab.formdata.ItemFormDTO;
 import com.prestigecab.prestige_cab.model.Categories;
 import com.prestigecab.prestige_cab.model.Items;
+import com.prestigecab.prestige_cab.service.JpaUserService;
 import com.prestigecab.prestige_cab.service.PrestigeCabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @Controller
 public class MainController {
     private PrestigeCabService prestigeCabService;
-
-    @GetMapping("/home")
-    public String home(){
-        return "home";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "login";
-    }
-
-    @GetMapping("/hello")
-    public String hello(){
-        return "hello";
-    }
-
+    private JpaUserService userService;
     @Autowired
-    public MainController(PrestigeCabService prestigeCabService) {
+    public MainController(PrestigeCabService prestigeCabService, JpaUserService userService) {
         this.prestigeCabService = prestigeCabService;
+        this.userService = userService;
     }
 
     @GetMapping("/")
     public String index() {
-        return "accueil";
+        return "hello";
     }
 
 
@@ -55,7 +39,7 @@ public class MainController {
 //        model.addAttribute("item", itemsList);
 //        model.addAttribute("keyword", keyword);
 
-        if (keyword == "" || keyword==null) {
+        if (keyword == "" || keyword == null) {
             model.addAttribute("item", prestigeCabService.getItems());
         } else {
             model.addAttribute("item", itemsList);
@@ -90,7 +74,7 @@ public class MainController {
     }
 
 
-    @GetMapping("/item/delete/{id}")
+    @GetMapping("/admin/item/delete/{id}")
     public String deleteItems(@PathVariable(name = "id") Long id) {
         prestigeCabService.deleteItems(id);
         return "redirect:/item";
@@ -139,7 +123,6 @@ public class MainController {
         prestigeCabService.saveCategories(categorieFormDTO);
         return "redirect:/categorie";
     }
-
 
 
 }

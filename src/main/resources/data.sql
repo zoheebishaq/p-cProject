@@ -32,3 +32,6 @@ INSERT INTO items (id, name, description, price, image, categories_id) VALUES
 (20, 'Peugeot Boxer 335 L3H3 1.5 BlueHDi 130 Pro (Fourgon)', 'Fourgon - Traction avant - Diesel - Boîte manuelle, 6 vitesses - 7 cv - 130 ch / 96 kW Consommation mixte: 6,0 L/100 km Autonomie moyenne: 1 500 km Dimensions (L x l x h): 5,998 m x 2,050 m x 2,760 m2009130 000 km', 4500, 'boxer-1.jpg', 6),
 (21, 'Volkswagen Caddy 1.2 TSI 84 Conceptline (Combiné)', 'Combiné - Traction avant - Essence - Boîte manuelle, 5 vitesses - 5 cv - 84 ch / 62 kW Consommation mixte: 6,1 L/100 km Autonomie moyenne: 902 km Dimensions (L x l x h): 4,408 m x 1,793 m x 1,822 m2013140 000 km', 5500, 'caddy-1.jpg', 6);
 
+INSERT INTO groups (id, name,role ) VALUES
+(1, 'admin','ADMIN'),
+(2, 'user','USER');

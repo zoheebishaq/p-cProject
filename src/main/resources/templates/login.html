@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
 >
-<head>
-    <title>Spring Security Example </title>
-</head>
+<head th:replace="fragments :: html_head"/>
 <body>
+
 <div th:if="${param.error}">
     Invalid username and password.
 </div>
 <div th:if="${param.logout}">
     You have been logged out.
 </div>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card shadow">
+                <div class="card-title text-center border-bottom">
+                    <h2 class="p-3 bg-warning"> Prestige Cab Login</h2>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/login}" method="post">
+                        <div class="mb-4"><label class="form-label"> User : </label> <input type="text" class="form-control" name="username"/> </div>
+                        <div class="mb-4"><label class="form-label"> Mot de passe :  </label> <input type="password" class="form-control" name="password"/> </div>
+                        <br>
+
+                        <div class="d-grid"><input class="btn btn-primary text-light main-bg" type="submit" value="Sign "/></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
+
+
+
+<!--<form>-->
+<!--    <div class="mb-4">-->
+<!--        <label for="username" class="form-label">Username/Email</label>-->
+<!--        <input type="text" class="form-control" id="username"/>-->
+<!--    </div>-->
+<!--    <div class="mb-4">-->
+<!--        <label for="password" class="form-label">Password</label>-->
+<!--        <input type="password" class="form-control" id="password"/>-->
+<!--    </div>-->
+<!--    <div class="mb-4">-->
+<!--        <input type="checkbox" class="form-check-input" id="remember"/>-->
+<!--        <label for="remember" class="form-label">Remember Me</label>-->
+<!--    </div>-->
+<!--    <div class="d-grid">-->
+<!--        <button type="submit" class="btn text-light main-bg">Login</button>-->
+<!--    </div>-->
+<!--</form>-->
+

@@ -22,11 +22,22 @@ public class User {
     @Basic
     @Column(name = "MAIL", nullable = false, length = 100)
     private String mail;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name="USER_GROUP",
             joinColumns =@JoinColumn(name = "ID_USER", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "ID_GROUP", referencedColumnName = "ID"))
     private Set<Group> groups;
+
+
+    public User() {
+    }
+
+    public User(String login, String password, String mail) {
+        this.login = login;
+        this.password = password;
+        this.mail = mail;
+    }
 
     public long getId() {
         return id;
