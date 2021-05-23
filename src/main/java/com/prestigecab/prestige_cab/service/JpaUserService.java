@@ -31,8 +31,6 @@ public class JpaUserService {
         userDao.save(user);
     }
 
-
-
     public void addUser(String name ,String email, String mdp,Long idGroup){
         Group group = this.groupDao.findById(idGroup).get();
         User user = new User(name,mdp,email);

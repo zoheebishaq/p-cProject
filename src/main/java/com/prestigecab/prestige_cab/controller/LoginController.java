@@ -35,6 +35,8 @@ public class LoginController {
 //        return "home";
 //    }
 
+
+
     @GetMapping("/admin/form")
     public String admin() {
         return "inscription";

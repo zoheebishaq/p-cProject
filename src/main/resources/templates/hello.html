@@ -6,14 +6,12 @@
 <header th:replace="fragments :: html_navbar"/>
 
 
-
-<div sec:authentication="principal.authorities">
-<div class="jumbotron jumbotron-fluid">
-    <div class="container">
-        <p class="lead">  Le nom de l'utilisateur connecté devrait apparaître ici </p>
-        <h1 class="display-4" th:inline="text">Bonjour [[${#httpServletRequest.remoteUser}]]!</h1>
+<div class="container" sec:authentication="principal.authorities">
+    <div class=" jumbotron jumbotron-fluid">
+        <div class=" border border-light bg-light m-5 p-5 rounded">
+            <p class="lead"> Le nom de l'utilisateur connecté devrait apparaître ici </p>
+            <h1 class="display-4" th:inline="text">Bonjour [[${#httpServletRequest.remoteUser}]]!</h1>
         </div>
-
     </div>
 </div>
 <!--<form th:action="@{/logout}" method="post">-->
