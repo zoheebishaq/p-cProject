@@ -32,7 +32,7 @@
 
 
 <!--                        th:href="@{'/item/'+${i.id}}"-->
-                        <a class="btn btn-primary" th:href="@{'/categorie/'+${c.id}}"href=""><i class="bi bi-nut-fill">&nbsp; Modifier</i> </a>
+                        <a class="btn btn-primary" th:href="@{'/admin/categorie/'+${c.id}}"href=""><i class="bi bi-nut-fill">&nbsp; Modifier</i> </a>
 <!--                        th:href="@{'/item/delete/'+${i.id}}"-->
 <!--                        <a class="btn btn-danger"  th:href="@{'/categorie/delete/'+${c.id}}" href="" >Supprimer</a>-->
                         <a data-toggle="modal" class="btn btn-danger" data-target="#modal-warning" th:attr="data-target='#modal-warning'+${c.id }"><i class="bi bi-trash-fill">&nbsp; Supprimer</i></a>
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button"  class="btn btn-secondary" data-dismiss="modal">Retour</button>
-                                        <a type="button" class="btn btn-danger" th:href="@{/categorie/delete/{id}(id=${c.id})}"><i class="bi bi-trash-fill">&nbsp; Supprimer</i></a>
+                                        <a type="button" class="btn btn-danger" th:href="@{/admin/categorie/delete/{id}(id=${c.id})}"><i class="bi bi-trash-fill">&nbsp; Supprimer</i></a>
                                     </div>
                                 </div>
                             </div>

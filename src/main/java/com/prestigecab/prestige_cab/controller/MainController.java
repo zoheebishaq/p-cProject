@@ -96,7 +96,7 @@ public class MainController {
         return "categlist";
     }
 
-    @GetMapping("/categorie/{id}")
+    @GetMapping("/admin/categorie/{id}")
     public String categories(Model model, @PathVariable(name = "id") Long id) {
         Categories categories = prestigeCabService.getCategorie(id);
         CategorieFormDTO categorieFormDTO = new CategorieFormDTO();
@@ -114,7 +114,7 @@ public class MainController {
         return "categform";
     }
 
-    @GetMapping("/categorie/delete/{id}")
+    @GetMapping("/admin/categorie/delete/{id}")
     public String deleteCategories(@PathVariable(name = "id") Long id) {
         prestigeCabService.deleteCategories(id);
         return "redirect:/categorie";
