@@ -4,24 +4,26 @@ import com.prestigecab.prestige_cab.formdata.CategorieFormDTO;
 import com.prestigecab.prestige_cab.formdata.ItemFormDTO;
 import com.prestigecab.prestige_cab.model.Categories;
 import com.prestigecab.prestige_cab.model.Items;
-import com.prestigecab.prestige_cab.service.JpaUserService;
 import com.prestigecab.prestige_cab.service.PrestigeCabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
 @Controller
 public class MainController {
     private PrestigeCabService prestigeCabService;
-    private JpaUserService userService;
+
     @Autowired
-    public MainController(PrestigeCabService prestigeCabService, JpaUserService userService) {
+    public MainController(PrestigeCabService prestigeCabService) {
         this.prestigeCabService = prestigeCabService;
-        this.userService = userService;
+
     }
 
     @GetMapping("/")
@@ -49,7 +51,7 @@ public class MainController {
 
     }
 
-    @GetMapping("/item/{id}")
+    @GetMapping("/admin/item/{id}")
     public String items(Model model, @PathVariable(name = "id") Long id) {
         Items items = prestigeCabService.getItem(id);
         ItemFormDTO itemFormDTO = new ItemFormDTO();

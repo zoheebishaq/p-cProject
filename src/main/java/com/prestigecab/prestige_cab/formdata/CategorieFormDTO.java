@@ -9,5 +9,4 @@ public class CategorieFormDTO {
     private long id;
     private String name;
 
-
 }

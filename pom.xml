@@ -58,11 +58,7 @@
 			<version>2.6</version>
 		</dependency>
 
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>19.0</version>
-		</dependency>
+Fth
 
 		<dependency>
 			<groupId>org.springframework.security</groupId>

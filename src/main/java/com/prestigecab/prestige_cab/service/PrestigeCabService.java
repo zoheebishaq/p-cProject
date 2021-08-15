@@ -35,6 +35,7 @@ public class PrestigeCabService {
     public Items getItem(Long id){ return itemRepository.findById(id).orElse(new Items()); }
     public void deleteItems(Long  id){ itemRepository.deleteById(id); }
 
+//    barre de recherche
     public List<Items> itemRequete(String keyword){
         return
         itemRepository.requeteItem(keyword);}
@@ -44,13 +45,14 @@ public class PrestigeCabService {
     public void saveItems(ItemFormDTO  itemFormDTO){
 //        try catch or else et =
         Items itemsDB = itemRepository.findById(itemFormDTO.getId()).orElse(new Items());
-        System.out.println(itemsDB);
+//        System.out.println(itemsDB);
         itemsDB.setName(itemFormDTO.getNomVoiture());
         itemsDB.setDescription(itemFormDTO.getDescriptionVoiture());
         itemsDB.setPrice(itemFormDTO.getPrix());
         Categories categories = categorieRepository.findById(itemFormDTO.getCategoriesId()).orElse(new Categories());
-        System.out.println(categories);
+//        System.out.println(categories);
         itemsDB.setCategories(categories);
+
         if(!itemFormDTO.getImage().isEmpty()){
             try{
                 imageManager.savePhoto(itemsDB, itemFormDTO.getImage().getInputStream());

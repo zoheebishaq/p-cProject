@@ -10,6 +10,7 @@ public interface ItemRepository extends CrudRepository<Items, Long> {
     @Query("SELECT i FROM Items i WHERE "
     +"lower(CONCAT(i.name,i.categories,i.description)) "
             +" LIKE lower(concat('%',?1,'%'))")
+
     public List<Items> requeteItem(String keyword);
 
     public List<Items> findItemsByCategories_Id(Long id);

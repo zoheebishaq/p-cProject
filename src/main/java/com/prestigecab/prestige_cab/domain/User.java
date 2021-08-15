@@ -1,9 +1,13 @@
 package com.prestigecab.prestige_cab.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
-
+@Getter
+@Setter
 @Entity
 public class User {
     @Id
@@ -37,56 +41,6 @@ public class User {
         this.login = login;
         this.password = password;
         this.mail = mail;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String name) {
-        this.login = name;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-   public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-
-    public Set<Group> getGroups() {
-        return groups;
-    }
-
-    public void setGroups(Set<Group> groups) {
-        this.groups = groups;
     }
 
     @Override
