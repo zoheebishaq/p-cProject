@@ -1,9 +1,9 @@
-package com.prestigecab.prestige_cab.service;
+package com.coin.zoheeb_coin.service;
 
-import com.prestigecab.prestige_cab.dao.GroupDao;
-import com.prestigecab.prestige_cab.dao.UserDao;
-import com.prestigecab.prestige_cab.domain.Group;
-import com.prestigecab.prestige_cab.domain.User;
+import com.coin.zoheeb_coin.dao.GroupDao;
+import com.coin.zoheeb_coin.dao.UserDao;
+import com.coin.zoheeb_coin.domain.User;
+import com.coin.zoheeb_coin.domain.Group;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;

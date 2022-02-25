@@ -1,6 +1,6 @@
-package com.prestigecab.prestige_cab.controller;
+package com.coin.zoheeb_coin.controller;
 
-import com.prestigecab.prestige_cab.service.JpaUserService;
+import com.coin.zoheeb_coin.service.JpaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

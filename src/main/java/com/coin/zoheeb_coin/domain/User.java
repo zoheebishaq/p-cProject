@@ -1,4 +1,4 @@
-package com.prestigecab.prestige_cab.domain;
+package com.coin.zoheeb_coin.domain;
 
 import lombok.Getter;
 import lombok.Setter;

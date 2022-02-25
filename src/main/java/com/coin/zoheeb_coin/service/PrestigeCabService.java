@@ -1,12 +1,12 @@
-package com.prestigecab.prestige_cab.service;
+package com.coin.zoheeb_coin.service;
 
+import com.coin.zoheeb_coin.dao.CategorieRepository;
+import com.coin.zoheeb_coin.dao.ItemRepository;
+import com.coin.zoheeb_coin.formdata.CategorieFormDTO;
+import com.coin.zoheeb_coin.formdata.ItemFormDTO;
+import com.coin.zoheeb_coin.model.Categories;
+import com.coin.zoheeb_coin.model.Items;
 import com.google.common.collect.Lists;
-import com.prestigecab.prestige_cab.dao.CategorieRepository;
-import com.prestigecab.prestige_cab.dao.ItemRepository;
-import com.prestigecab.prestige_cab.formdata.CategorieFormDTO;
-import com.prestigecab.prestige_cab.formdata.ItemFormDTO;
-import com.prestigecab.prestige_cab.model.Categories;
-import com.prestigecab.prestige_cab.model.Items;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,7 +42,7 @@ public class PrestigeCabService {
 
 
 
-    public void saveItems(ItemFormDTO  itemFormDTO){
+    public void saveItems(ItemFormDTO itemFormDTO){
 //        try catch or else et =
         Items itemsDB = itemRepository.findById(itemFormDTO.getId()).orElse(new Items());
 //        System.out.println(itemsDB);

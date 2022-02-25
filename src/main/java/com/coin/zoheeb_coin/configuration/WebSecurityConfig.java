@@ -1,6 +1,6 @@
-package com.prestigecab.prestige_cab.configuration;
+package com.coin.zoheeb_coin.configuration;
 
-import com.prestigecab.prestige_cab.service.JpaUserDetailsService;
+import com.coin.zoheeb_coin.service.JpaUserDetailsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.prestigecab.prestige_cab.formdata;
+package com.coin.zoheeb_coin.formdata;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.prestigecab.prestige_cab;
+package com.coin.zoheeb_coin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

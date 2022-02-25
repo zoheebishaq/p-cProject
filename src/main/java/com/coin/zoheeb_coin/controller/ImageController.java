@@ -1,8 +1,8 @@
-package com.prestigecab.prestige_cab.controller;
+package com.coin.zoheeb_coin.controller;
 
+import com.coin.zoheeb_coin.dao.ItemRepository;
+import com.coin.zoheeb_coin.service.ImageManager;
 import org.apache.commons.io.IOUtils;
-import com.prestigecab.prestige_cab.dao.ItemRepository;
-import com.prestigecab.prestige_cab.service.ImageManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;

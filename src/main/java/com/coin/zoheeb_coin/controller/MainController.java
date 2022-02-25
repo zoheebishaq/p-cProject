@@ -1,10 +1,10 @@
-package com.prestigecab.prestige_cab.controller;
+package com.coin.zoheeb_coin.controller;
 
-import com.prestigecab.prestige_cab.formdata.CategorieFormDTO;
-import com.prestigecab.prestige_cab.formdata.ItemFormDTO;
-import com.prestigecab.prestige_cab.model.Categories;
-import com.prestigecab.prestige_cab.model.Items;
-import com.prestigecab.prestige_cab.service.PrestigeCabService;
+import com.coin.zoheeb_coin.formdata.CategorieFormDTO;
+import com.coin.zoheeb_coin.formdata.ItemFormDTO;
+import com.coin.zoheeb_coin.model.Categories;
+import com.coin.zoheeb_coin.model.Items;
+import com.coin.zoheeb_coin.service.PrestigeCabService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;

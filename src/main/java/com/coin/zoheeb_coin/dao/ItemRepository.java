@@ -1,6 +1,6 @@
-package com.prestigecab.prestige_cab.dao;
+package com.coin.zoheeb_coin.dao;
 
-import com.prestigecab.prestige_cab.model.Items;
+import com.coin.zoheeb_coin.model.Items;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

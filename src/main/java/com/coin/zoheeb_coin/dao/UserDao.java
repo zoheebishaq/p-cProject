@@ -1,6 +1,6 @@
-package com.prestigecab.prestige_cab.dao;
+package com.coin.zoheeb_coin.dao;
 
-import com.prestigecab.prestige_cab.domain.User;
+import com.coin.zoheeb_coin.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserDao extends JpaRepository<User, Long> {

@@ -1,4 +1,4 @@
-package com.prestigecab.prestige_cab;
+package com.coin.zoheeb_coin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

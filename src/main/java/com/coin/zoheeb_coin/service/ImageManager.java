@@ -1,6 +1,6 @@
-package com.prestigecab.prestige_cab.service;
+package com.coin.zoheeb_coin.service;
 
-import com.prestigecab.prestige_cab.model.Items;
+import com.coin.zoheeb_coin.model.Items;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 

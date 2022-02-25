@@ -1,8 +1,8 @@
-package com.prestigecab.prestige_cab.service;
+package com.coin.zoheeb_coin.service;
 
-import com.prestigecab.prestige_cab.dao.UserDao;
-import com.prestigecab.prestige_cab.domain.Group;
-import com.prestigecab.prestige_cab.domain.User;
+import com.coin.zoheeb_coin.dao.UserDao;
+import com.coin.zoheeb_coin.domain.User;
+import com.coin.zoheeb_coin.domain.Group;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
