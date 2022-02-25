@@ -1,0 +1,40 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+
+
+
+left to right direction
+actor "User" as dt
+rectangle User {
+  usecase "Generer et gerer les annonces sauf supprimer" as UC1
+}
+
+
+
+
+
+
+
+
+
+
+
+dt --> UC1
+
+
+
+left to right direction
+actor "Admin" as ad
+rectangle admin {
+  usecase "Gerer les utilisateurs" as adUC1
+  usecase "Generer et gerer les annonces" as adUC2
+
+}
+ad --> adUC1
+ad --> adUC2
+
+
+
+@enduml
