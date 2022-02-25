@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PrestigeCabApplication {
+public class ZoheebCoinApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PrestigeCabApplication.class, args);
+		SpringApplication.run(ZoheebCoinApplication.class, args);
 	}
 
 }
